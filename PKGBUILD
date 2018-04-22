@@ -52,7 +52,7 @@ build() {
   # Build project
   cmake ${srcdir}/${_dir} \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCATKIN_BUILD_BINARY_PACKAGE=ON \
+        -DCATKIN_BUILD_BINARY_PACKAGE=OFF \
         -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic \
         -DPYTHON_EXECUTABLE=/usr/bin/python2 \
         -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
