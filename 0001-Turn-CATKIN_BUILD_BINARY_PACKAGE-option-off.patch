@@ -1,4 +1,4 @@
-From aaf24415c4e39090feb87af8042cf07627e0e994 Mon Sep 17 00:00:00 2001
+From b93257da8988bdafa701fcad18ea3fbcbf3dd924 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Gr=C3=A9goire=20Payen=20de=20La=20Garanderie?=
  <gdlg@hochet.info>
 Date: Mon, 23 Apr 2018 00:36:47 +0100
@@ -9,7 +9,7 @@ Subject: [PATCH] Turn CATKIN_BUILD_BINARY_PACKAGE option off.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/PKGBUILD b/PKGBUILD
-index 4b64fe7..7748d1f 100644
+index 8d5062b..b4174c0 100644
 --- a/PKGBUILD
 +++ b/PKGBUILD
 @@ -52,7 +52,7 @@ build() {
@@ -18,7 +18,7 @@ index 4b64fe7..7748d1f 100644
          -DCMAKE_BUILD_TYPE=Release \
 -        -DCATKIN_BUILD_BINARY_PACKAGE=ON \
 +        -DCATKIN_BUILD_BINARY_PACKAGE=OFF \
-         -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic \
+         -DCMAKE_INSTALL_PREFIX=/opt/ros/melodic \
          -DPYTHON_EXECUTABLE=/usr/bin/python2 \
          -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
 -- 
