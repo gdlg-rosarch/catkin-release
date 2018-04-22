@@ -1,0 +1,26 @@
+From aaf24415c4e39090feb87af8042cf07627e0e994 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Gr=C3=A9goire=20Payen=20de=20La=20Garanderie?=
+ <gdlg@hochet.info>
+Date: Mon, 23 Apr 2018 00:36:47 +0100
+Subject: [PATCH] Turn CATKIN_BUILD_BINARY_PACKAGE option off.
+
+---
+ PKGBUILD | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/PKGBUILD b/PKGBUILD
+index 4b64fe7..7748d1f 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -52,7 +52,7 @@ build() {
+   # Build project
+   cmake ${srcdir}/${_dir} \
+         -DCMAKE_BUILD_TYPE=Release \
+-        -DCATKIN_BUILD_BINARY_PACKAGE=ON \
++        -DCATKIN_BUILD_BINARY_PACKAGE=OFF \
+         -DCMAKE_INSTALL_PREFIX=/opt/ros/kinetic \
+         -DPYTHON_EXECUTABLE=/usr/bin/python2 \
+         -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
+-- 
+2.17.0
+
