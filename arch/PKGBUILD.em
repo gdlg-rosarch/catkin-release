@@ -1,46 +1,32 @@
 # Script generated with Bloom
-pkgdesc="ROS - Low-level build system macros and infrastructure for ROS."
-url='http://www.ros.org/wiki/catkin'
+pkgdesc="ROS - @(Description)"
+@[if Homepage and Homepage != '']url='@(Homepage)'@[end if]
 
-pkgname='ros-lunar-catkin'
-pkgver='0.7.11_1'
+pkgname='@(Package)'
+pkgver='@(Version)_@(Pkgrel)'
 pkgrel=1
 arch=('any')
-license=('BSD'
-)
+license=(@[for p in Licenses]'@p'@\n@[end for])
 
-makedepends=('cmake'
-'python2'
-'python2-catkin_pkg>0.2.9'
-'python2-empy'
-'python2-mock'
-'python2-nose'
-)
+makedepends=(@[for p in BuildDepends]'@p'@\n@[end for])
 
-depends=('cmake'
-'gmock'
-'gtest'
-'python2'
-'python2-catkin_pkg>0.2.9'
-'python2-empy'
-'python2-nose'
-)
+depends=(@[for p in Depends]'@p'@\n@[end for])
 
-conflicts=()
-replaces=()
+conflicts=(@[for p in Conflicts]'@p'@\n@[end for])
+replaces=(@[for p in Replaces]'@p'@\n@[end for])
 
-_dir=catkin
+_dir=@(Name)
 source=()
 md5sums=()
 
 prepare() {
-    cp -R $startdir/catkin $srcdir/catkin
+    cp -R $startdir/@(Name) $srcdir/@(Name)
 }
 
 build() {
   # Use ROS environment variables
   source /usr/share/ros-build-tools/clear-ros-env.sh
-  [ -f /opt/ros/lunar/setup.bash ] && source /opt/ros/lunar/setup.bash
+  [ -f /opt/ros/@(ROSDistribution)/setup.bash ] && source /opt/ros/@(ROSDistribution)/setup.bash
 
   # Create build directory
   [ -d ${srcdir}/build ] || mkdir ${srcdir}/build
@@ -52,8 +38,8 @@ build() {
   # Build project
   cmake ${srcdir}/${_dir} \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCATKIN_BUILD_BINARY_PACKAGE=OFF \
-        -DCMAKE_INSTALL_PREFIX=/opt/ros/lunar \
+        -DCATKIN_BUILD_BINARY_PACKAGE=ON \
+        -DCMAKE_INSTALL_PREFIX=/opt/ros/@(ROSDistribution) \
         -DPYTHON_EXECUTABLE=/usr/bin/python2 \
         -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 \
         -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so \
